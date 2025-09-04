@@ -1,0 +1,47 @@
+
+import java.util.ArrayList;
+
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+        //set array length
+        int n;
+        n=5;
+
+        //set up array a
+        ArrayList<Integer> a = new ArrayList<>();
+        for(int i=0;i<n;i++){
+            //set random num equal to i and add to array a
+            int num = (int)(Math.random()*100);
+            a.add(num);
+        }
+
+        //set up array b
+        ArrayList<Integer> b = new ArrayList<>();
+        for(int i=0;i<n;i++){
+            //set random num equal to i and add to array b
+            int num = (int)(Math.random()*100);
+            b.add(num);
+        }
+
+        //set up array c
+        ArrayList<Integer> c = new ArrayList<>();
+        for(int i=0;i<n;i++){
+            c.add(a.get(i)*b.get(i));
+        }
+
+        //checks
+        System.out.println("\nA\n");
+        for(int i=0;i<a.size();i++){
+            System.out.println(a.get(i));
+        }
+        System.out.println("\nB\n");
+        for(int i=0;i<b.size();i++){
+            System.out.println(b.get(i));
+        }
+        System.out.println("\nC\n");
+        for(int i=0;i<c.size();i++){
+            System.out.println(c.get(i));
+        }
+    }
+}
