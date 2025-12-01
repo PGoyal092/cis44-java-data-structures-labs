@@ -1,8 +1,10 @@
-Option B:
+Option B: 
+
+A SmartScheduler that uses Priority Queues and Heaps to manage a stream of incoming requests where some are more urgent than others. 
 
 If priority is determined by a low number, we are going to use a min-heap, and if priority is determined by a high number, we're going to use a max-heap.
 For this project, I plan on using a min-heap because it reflects the real world priority rules. 
-Many times, in the the real world, a lower number means a higher urgency to complete the task and a min-heap places the smallest number at the root, allowing for efficient extraction. 
+Many times, in the the real world, a lower number means a higher urgency to complete the task and a min-heap places the smallest number at the root, allowing for efficient extraction. By assigning a lower number to higher priority tasks, we ensure that that the higher-priority tasks are processed before earlier, low-priority ones.  
 
 UML:
 +-------------------+
@@ -18,7 +20,7 @@ UML:
 +-------------------+
 
 +--------------------------+
-|          Scheduler       +
+|       SmartScheduler     +
 +--------------------------+
 |  - queue: PriorityQueue  |
 |    (min-heap)            |
