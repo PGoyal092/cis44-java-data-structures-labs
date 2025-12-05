@@ -1,0 +1,56 @@
+public class Task {
+    private String id;
+    private int priority;
+    private long timestamp;
+
+    public Task(String id, int priority, long timestamp) {
+        this.id = id;
+        this.priority = priority;
+        this.timestamp = timestamp;
+    }
+    public String getId() {
+        return id;
+    }
+    public int getPriority() {
+        return priority;
+    }
+    public long getTimestamp() {
+        return timestamp;
+    }
+    
+    @Override
+    public String toString() {
+        return "Task[id=" + id + ", priority=" + priority + ", timestamp=" + timestamp + "]";
+    }
+}
+-----------------------------------------------------------------------------------------------------------
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+public class SmartScheduler {
+    private PriorityQueue<Task> queue;
+    public SmartScheduler() {
+        queue = new PriorityQueue<>(new TaskComparator());
+    }
+    private static class TaskComparator implements Comparator<Task> {
+        @Override
+        public int compare(Task t1, Task t2) {
+            if (t1.getPriority() != t2.getPriority()) {
+                return Integer.compare(t1.getPriority(), t2.getPriority());
+            }
+            return Long.compare(t1.getTimestamp(), t2.getTimestamp());
+        }
+    }
+    public void addTask(Task task) {
+        queue.add(task);
+    }
+    public Task getNextTask() {
+        return queue.poll();
+    }
+    public Task peekNextTask() {
+        return queue.peek();
+    }
+    public boolean isEmpty() {
+        return queue.isEmpty();
+    }
+}
