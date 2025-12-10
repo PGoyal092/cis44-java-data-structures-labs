@@ -1,3 +1,4 @@
+//alogorithms and implementation
 public class Task {
     private String id;
     private int priority;
@@ -35,22 +36,25 @@ public class SmartScheduler {
     private static class TaskComparator implements Comparator<Task> {
         @Override
         public int compare(Task t1, Task t2) {
+            // first checks priority
             if (t1.getPriority() != t2.getPriority()) {
                 return Integer.compare(t1.getPriority(), t2.getPriority());
             }
+            // if same priority, the one entered first is higher priority and will be taken out first
             return Long.compare(t1.getTimestamp(), t2.getTimestamp());
         }
     }
-    public void addTask(Task task) {
+    public void addTask(Task task) { //adds new task to scheduler
         queue.add(task);
     }
-    public Task getNextTask() {
-        return queue.poll();
+    //triggers heap removal alogrithm
+    public Task getNextTask() { //removes and returns highest-priority task
+        return queue.poll(); //phase 3 alogorithm
     }
-    public Task peekNextTask() {
+    public Task peekNextTask() { //returns next task without removing
         return queue.peek();
     }
-    public boolean isEmpty() {
+    public boolean isEmpty() { // returns true if scheduler is empty
         return queue.isEmpty();
     }
 }
