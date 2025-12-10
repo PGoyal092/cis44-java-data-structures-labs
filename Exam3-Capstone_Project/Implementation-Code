@@ -48,7 +48,7 @@ public class SmartScheduler {
         queue.add(task);
     }
     //triggers heap removal alogrithm
-    public Task getNextTask() { //removes and returns highest-priority task
+    public Task getNextTask() { //removes and returns highest-priority task (the one at the root)
         return queue.poll(); //phase 3 alogorithm
     }
     public Task peekNextTask() { //returns next task without removing
