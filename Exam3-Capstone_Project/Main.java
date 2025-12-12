@@ -1,4 +1,4 @@
-public class Testing_Scheduler {
+public class Main {
     public static void main(String[] args) {
         SmartScheduler scheduler = new SmartScheduler();
 
@@ -22,3 +22,4 @@ public class Testing_Scheduler {
 
     }
 }
+
